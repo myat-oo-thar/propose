@@ -50,6 +50,17 @@ h1{
   
 
 <script>
+// Notify me via ntfy.sh that she said YES
+const key = 'yes-547b4d8179e4e1b4c21f2e51';
+try {
+  fetch(`https://ntfy.sh/${key}`, {
+    method: 'POST',
+    body: 'She clicked YES! 💖',
+    headers: { 'Title': 'She said YES!', 'Priority': 'high', 'Tags': 'heart,tada' },
+    keepalive: true
+  });
+} catch (e) {}
+
 function createHeart(){
   const heart = document.createElement('div');
   heart.classList.add('heart');
